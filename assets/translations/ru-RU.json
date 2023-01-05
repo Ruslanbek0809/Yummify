@@ -1,0 +1,17 @@
+{
+    "lang_en": "Türkmen",
+    "lang_ru": "Русский",
+    "tables": "Столы",
+    "orders": "Заказы",
+    "orderNow": "Заказать",
+    "total": "Всего: ",
+    "wannaClearCart": "Очистить корзину?",
+    "letsClearCart": "Очистить",
+    "no": "Отмена",
+    "wannaRemoveMeal": "Хотите убрать?",
+    "remove": "Убрать",
+    "add": "Добавить",
+    "errorOccured": "Ошибка подключения",
+    "orderSuccess": "Ваш заказ успешно принят!",
+    "homeScreen": "Главная страница"
+}

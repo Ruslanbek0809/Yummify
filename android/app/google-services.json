@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "897078125338",
+    "project_id": "yummify",
+    "storage_bucket": "yummify.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897078125338:android:eab8fdc65f78c1a4c042a3",
+        "android_client_info": {
+          "package_name": "tm.com.yummify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897078125338-24f5dpu48tshmcn42ogph8bicbnkdmr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXCzdXlfHWYP3T4VzOUrzdRWFLuqkaJN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897078125338-24f5dpu48tshmcn42ogph8bicbnkdmr2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "897078125338-71rdcpdr9kih8lufdlhlk6jf1casbm89.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tm.com.yummify"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
