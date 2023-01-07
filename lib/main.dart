@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,18 +8,19 @@ import 'package:yummify/yummify_app.dart';
 import 'app/app.locator.dart';
 import 'firebase_options.dart';
 import 'models/models.dart';
+import 'shared/shared.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // /// METHOD 1. To solve HandshakeException: Handshake error in client CERTIFICATE_VERIFY_FAILED issue
-  // HttpOverrides.global = MyHttpOverrides();
+  /// METHOD 1. To solve HandshakeException: Handshake error in client CERTIFICATE_VERIFY_FAILED issue
+  HttpOverrides.global = MyHttpOverrides();
 
-  /// METHOD 2. To solve HandshakeException: Handshake error in client CERTIFICATE_VERIFY_FAILED issue
-  ByteData data =
-      await PlatformAssetBundle().load('assets/ca/lets-encrypt-r3.pem');
-  SecurityContext.defaultContext
-      .setTrustedCertificatesBytes(data.buffer.asUint8List());
+  // /// METHOD 2. To solve HandshakeException: Handshake error in client CERTIFICATE_VERIFY_FAILED issue
+  // ByteData data =
+  //     await PlatformAssetBundle().load('assets/ca/lets-encrypt-r3.pem');
+  // SecurityContext.defaultContext
+  //     .setTrustedCertificatesBytes(data.buffer.asUint8List());
 
   await EasyLocalization.ensureInitialized();
   await Hive.initFlutter();
@@ -29,7 +29,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  setupLocator(); // STACKED setup
+  setupLocator(); // STACKED init setup for locators
   // setupDialog();
   runApp(
     EasyLocalization(
