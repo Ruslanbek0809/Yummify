@@ -35,7 +35,7 @@ Yummify is a fully-functional restaurant menu app to demonstrate how we can make
   ```
 - Some files like `*.freezed.dart`, `*.g.dart`, `*.iconfig.dart` are auto generated. If there is any issue from these files just run this command to regenerate them.
   ```sh
-  flutter pub run build_runner build or flutter pub run build_runner build --delete-conflicting-outputs
+  flutter pub run build_runner build --delete-conflicting-outputs
   ```
   
 ## Credit 🙏
@@ -54,23 +54,12 @@ And everyone else                                | [dio][dio_link], [hive][hive_
 ## Conclusion
 I will be happy to answer any questions, please feel free to submit an issue and/or pull request 🙂
 
-You can file features requests (not intending to add new features, but I will try to add based on requests), bugs or any
-questions at the [issue tracker][issue_tracker_link]. 🙂
-
 If you liked my project, don’t forget to ⭐ star the repo to show your support.
 Thank you!!!
-
-## Features and bugs
-
-
-And don't forget to give a star if you find this repo helpful, or
-you have learned something from it!
 
 ### Maintainers
 
 * [Ruslanbek](https://github.com/Ruslanbek0809)
-
-[issue_tracker_link]: https://github.com/Ruslanbek0809/Yummify/issues
 
 [vgv_link]: https://github.com/VeryGoodOpenSource
 
