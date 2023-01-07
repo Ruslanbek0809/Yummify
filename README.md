@@ -1,6 +1,6 @@
 # Yummify
 
-Yummify is a restaurant menu app developed using MVVM clean architecture.
+Yummify is a fully-functional restaurant menu app to demonstrate how we can make a large app in an understandable manner using an MVVM inspired architecture in Flutter.
 
 ## Screenshots 📷
 
