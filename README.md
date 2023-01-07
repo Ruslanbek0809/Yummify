@@ -1,4 +1,4 @@
-# Yummify
+# <img width="64" src="https://github.com/Ruslanbek0809/Yummify/blob/main/assets/logo.png?raw=true"> Yummify
 
 Yummify is a fully-functional restaurant menu app to demonstrate how we can make a large app in an understandable manner using an MVVM inspired architecture in Flutter.
 
@@ -55,7 +55,6 @@ And everyone else                                | [dio][dio_link], [hive][hive_
 I will be happy to answer any questions, please feel free to submit an issue and/or pull request 🙂
 
 If you liked my project, don’t forget to ⭐ star the repo to show your support.
-Thank you!!!
 
 ### Maintainers
 
