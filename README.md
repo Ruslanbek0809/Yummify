@@ -4,9 +4,26 @@ Yummify is a restaurant menu app developed using MVVM clean architecture.
 
 ## Screenshots 📷
 
+## App Features:
+* Flutter + Firebase (Firestore, Authentication, Storage)
+  Test account: haonguyen.uet@gmail.com / 123456
+* Use BloC pattern
+* Responsive
+* User-friendly interface
+* Clean Architecture
+* Custom resuable widgets
+* Login or register by email and password
+* Search, filter and sort products
+* Send your feedback and rating
+* Contact with admin by message
+* Payment by 2 methods: Cash or Credit card
+* Track your orders
+* Select your delivery address
+* Change app language
+* More...
+
 ## Installation
 
-- Check if you are in the beta channel of flutter SDK and the version v2.0.1 or higher. [Instruction to change flutter channel](https://github.com/flutter/flutter/wiki/Flutter-build-release-channels#how-to-change-channels).
 - Clone the repo
   ```sh
   git clone https://github.com/Ruslanbek0809/Yummify.git
@@ -18,7 +35,7 @@ Yummify is a restaurant menu app developed using MVVM clean architecture.
   ```
 - Some files like `*.freezed.dart`, `*.g.dart`, `*.iconfig.dart` are auto generated. If there is any issue from these files just run this command to regenerate them.
   ```sh
-  flutter pub run build_runner watch --delete-conflicting-outputs
+  flutter pub run build_runner build or flutter pub run build_runner build --delete-conflicting-outputs
   ```
   
 ## Credit 🙏
@@ -34,10 +51,17 @@ Maintainers                                      | Packages
 [Very Good Ventures][vgv_link]                   | For their awesome README [template][very_good_cli_link]
 And everyone else                                | [dio][dio_link], [hive][hive_link], and many more...
 
-## Features and bugs
+## Conclusion
+I will be happy to answer any questions, please feel free to submit an issue and/or pull request 🙂
 
 You can file features requests (not intending to add new features, but I will try to add based on requests), bugs or any
-questions at the [issue tracker][issue_tracker_link]. 
+questions at the [issue tracker][issue_tracker_link]. 🙂
+
+If you liked my project, don’t forget to ⭐ star the repo to show your support.
+Thank you!!!
+
+## Features and bugs
+
 
 And don't forget to give a star if you find this repo helpful, or
 you have learned something from it!
@@ -45,6 +69,8 @@ you have learned something from it!
 ### Maintainers
 
 * [Ruslanbek](https://github.com/Ruslanbek0809)
+
+[issue_tracker_link]: https://github.com/Ruslanbek0809/Yummify/issues
 
 [vgv_link]: https://github.com/VeryGoodOpenSource
 
