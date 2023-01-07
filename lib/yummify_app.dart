@@ -13,7 +13,7 @@ class YummifyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// Orientation: PORTRAIT Only
+    // Orientation: PORTRAIT Only
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
