@@ -76,7 +76,7 @@ dependencies:
   flutter_spinkit: ^5.1.0
   flash: ^2.0.3+3
   shimmer: ^2.0.0
-  bottom_sheet: ^3.1.1 # Custom bottom sheet
+  bottom_sheet: ^3.1.2 # Custom bottom sheet
   badges: ^2.0.3
   lottie: ^1.2.1
   dropdown_button2: ^1.7.2 # Custom language selection dropdown

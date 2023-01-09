@@ -51,7 +51,6 @@ class MealHook extends HookViewModelWidget<MealViewModel> {
           //------------------ CUSTOM PACKAGE ---------------------//
           await showFlexibleBottomSheet(
             isExpand: false,
-            // minHeight: 0,
             initHeight: 0.95,
             maxHeight: 0.95,
             duration: const Duration(milliseconds: 250),

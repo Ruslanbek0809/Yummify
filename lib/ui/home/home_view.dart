@@ -199,7 +199,7 @@ class HomeView extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.only(left: 5.w),
                               child: Text(
-                                'coffee_nostra',
+                                'restaurant_ig_page',
                                 style: ktsInfoText,
                               ),
                             ),
@@ -216,7 +216,7 @@ class HomeView extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.only(left: 5.w),
                               child: Text(
-                                '+993 65 650141',
+                                'imo_page',
                                 style: ktsInfoText,
                               ),
                             ),
@@ -251,9 +251,8 @@ class HomeView extends StatelessWidget {
                               itemBuilder: (context, pos) => LayoutBuilder(
                                   builder: (context, constraints) {
                                 return GestureDetector(
-                                  onTap: () => {},
-                                  // onTap: () => model.navToCategoryMealsView(
-                                  //     model.categories![pos]),
+                                  onTap: () => model.navToCategoryMealsView(
+                                      model.categories[pos]),
                                   child: Container(
                                     decoration: BoxDecoration(
                                       color: kcSecondaryDarkColor,
