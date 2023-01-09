@@ -1,7 +1,7 @@
 class Constants {
   static const appName = 'Yummify';
 
-  static const baseUrl = 'http://104.193.255.3/api/';
+  static const baseUrl = 'http://185.223.93.215/api/';
 
   // Hive
   static const cartBox = 'cartBox';
