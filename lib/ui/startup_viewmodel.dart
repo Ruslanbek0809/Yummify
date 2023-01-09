@@ -39,7 +39,7 @@ class StartUpViewModel extends ReactiveViewModel {
   Future<void> navToHomeWithConnection(Locale initLocale) async {
     log.i('===== navToHomeWithConnection() STARTED =====');
 
-    /// So this below condition is to change lang of API initialization to ru lang when app is opened for the first time. Drawback of easy_localization. Workaround
+    /// So this below condition is to change lang of API initialization to ru lang when app is opened for the first time. Workaround for an issue of easy_localization package.
     if (initLocale.toString() == 'ru_RU') {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       final savedLocale = prefs.getString(Constants.savedLocale) ??

@@ -34,6 +34,7 @@ void main() async {
   runApp(
     EasyLocalization(
       path: 'assets/translations',
+      startLocale: const Locale('en', 'US'), // Overrides device locale.
       supportedLocales: const [Locale('en', 'US'), Locale('ru', 'RU')],
       fallbackLocale: const Locale('en', 'US'),
       child: const YummifyApp(),

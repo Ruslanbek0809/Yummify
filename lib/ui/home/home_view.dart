@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
-      onModelReady: (model) => model.setInitalLang(context),
+      onModelReady: (model) => model.setInitialLang(context),
       builder: (context, model, child) {
         return Scaffold(
           floatingActionButton: const BadgeView(),
@@ -149,12 +149,19 @@ class HomeView extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(16.w, 0.h, 16.w, 15.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
                       'assets/logo.svg',
                       color: kcFontColor,
-                      width: 0.375.sw,
+                      height: 0.1.sh,
+                    ),
+                    Expanded(
+                      child: SvgPicture.asset(
+                        'assets/logo_name.svg',
+                        color: kcFontColor,
+                        height: 0.075.sh,
+                      ),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.end,
