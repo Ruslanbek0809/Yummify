@@ -14,6 +14,7 @@ import '../ui/startup_view.dart';
     MaterialRoute(page: HomeView),
     MaterialRoute(page: CategoryView),
     MaterialRoute(page: CartView),
+    MaterialRoute(page: SuccessView),
   ],
   dependencies: [
     LazySingleton(classType: ApiRootService),
