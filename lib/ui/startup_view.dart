@@ -30,7 +30,7 @@ class StartUpView extends StatelessWidget {
               delay: 500,
               child: YummifyImage(
                 image: 'assets/logo.png',
-                width: 0.5.sw,
+                width: 0.4.sw,
               ), // YummifyImage is a custom image widget
             ),
           ),
