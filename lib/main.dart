@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:yummify/yummify_app.dart';
 import 'app/app.locator.dart';
 import 'models/models.dart';
+import 'setup_dialog.dart';
 import 'shared/shared.dart';
 
 void main() async {
@@ -24,7 +25,7 @@ void main() async {
   Hive.registerAdapter<HiveMeal>(HiveMealAdapter());
   Hive.registerAdapter<HiveTable>(HiveTableAdapter());
   setupLocator(); // STACKED init setup for locators
-  // setupDialog();
+  setupDialog();
   runApp(
     EasyLocalization(
       path: 'assets/translations',
