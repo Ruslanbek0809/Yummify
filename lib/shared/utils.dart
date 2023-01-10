@@ -34,7 +34,7 @@ Future<void> showErrorFlashBar({
 }) async {
   await showFlash(
     context: context,
-    duration: Duration(milliseconds: 2000),
+    duration: const Duration(milliseconds: 2000),
     builder: (context, controller) {
       return Flash(
         backgroundColor: kcSecondaryDarkColor,

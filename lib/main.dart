@@ -1,12 +1,9 @@
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:yummify/yummify_app.dart';
 import 'app/app.locator.dart';
-import 'firebase_options.dart';
 import 'models/models.dart';
 import 'shared/shared.dart';
 
@@ -26,9 +23,6 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<HiveMeal>(HiveMealAdapter());
   Hive.registerAdapter<HiveTable>(HiveTableAdapter());
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   setupLocator(); // STACKED init setup for locators
   // setupDialog();
   runApp(
