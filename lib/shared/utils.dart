@@ -66,6 +66,12 @@ Future<void> showErrorFlashBar({
   );
 }
 
+String getDeviceType() {
+  final data = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+  // printLog('getDeviceType(): ${data.size.shortestSide}');
+  return data.size.shortestSide < 600 ? Constants.phone : Constants.tablet;
+}
+
 /// Radiuses
 BorderRadius get radius20 => BorderRadius.circular(20.0);
 BorderRadius get radius15 => BorderRadius.circular(15.0);

@@ -55,9 +55,8 @@ class CategoryView extends StatelessWidget {
                       color: kcSecondaryDarkColor,
                       child: IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_back_rounded,
-                          size: 14.sp,
                           color: kcFontColor,
                         ),
                       ),

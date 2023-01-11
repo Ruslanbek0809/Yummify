@@ -151,78 +151,99 @@ class HomeView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SvgPicture.asset(
-                      'assets/logo.svg',
-                      color: kcFontColor,
-                      height: 0.1.sh,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          'assets/logo.svg',
+                          color: kcFontColor,
+                          height: getDeviceType() == Constants.phone
+                              ? 0.075.sh
+                              : 0.1.sh,
+                        ),
+                        SvgPicture.asset(
+                          'assets/logo_name.svg',
+                          color: kcFontColor,
+                          height: getDeviceType() == Constants.phone
+                              ? 0.05.sh
+                              : 0.075.sh,
+                        ),
+                      ],
                     ),
                     Expanded(
-                      child: SvgPicture.asset(
-                        'assets/logo_name.svg',
-                        color: kcFontColor,
-                        height: 0.075.sh,
-                      ),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        GestureDetector(
-                          onTap: () async => await model.navToTablesView(),
-                          child: Row(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          GestureDetector(
+                            onTap: () async => await model.navToTablesView(),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SvgPicture.asset(
+                                  'assets/table_logo.svg',
+                                  color: kcFontColor,
+                                  width: getDeviceType() == Constants.phone
+                                      ? 16.w
+                                      : 12.sp,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 3.w, top: 6.h),
+                                  child: Text(
+                                    model.selectedHiveTable.name!,
+                                    style: getDeviceType() == Constants.phone
+                                        ? ktsCatText
+                                        : ktsInfoText,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 5.h),
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SvgPicture.asset(
-                                'assets/table_logo.svg',
+                                'assets/instagram.svg',
                                 color: kcFontColor,
-                                width: 12.sp,
+                                width: getDeviceType() == Constants.phone
+                                    ? 16.w
+                                    : 12.sp,
                               ),
                               Padding(
-                                padding: EdgeInsets.only(left: 3.w, top: 6.h),
+                                padding: EdgeInsets.only(left: 5.w),
                                 child: Text(
-                                  model.selectedHiveTable.name!,
-                                  style: ktsInfoText,
+                                  'restaurant_ig_page',
+                                  style: getDeviceType() == Constants.phone
+                                      ? ktsCatText
+                                      : ktsInfoText,
                                 ),
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(height: 5.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/instagram.svg',
-                              color: kcFontColor,
-                              width: 10.sp,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 5.w),
-                              child: Text(
-                                'restaurant_ig_page',
-                                style: ktsInfoText,
+                          SizedBox(height: 5.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/imo.svg',
+                                width: getDeviceType() == Constants.phone
+                                    ? 16.w
+                                    : 12.sp,
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/imo.svg',
-                              width: 10.sp,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 5.w),
-                              child: Text(
-                                'imo_page',
-                                style: ktsInfoText,
+                              Padding(
+                                padding: EdgeInsets.only(left: 5.w),
+                                child: Text(
+                                  'imo_page',
+                                  style: getDeviceType() == Constants.phone
+                                      ? ktsCatText
+                                      : ktsInfoText,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -256,7 +277,7 @@ class HomeView extends StatelessWidget {
                                   child: Container(
                                     decoration: BoxDecoration(
                                       color: kcSecondaryDarkColor,
-                                      borderRadius: kbr20,
+                                      borderRadius: kbr12,
                                     ),
                                     width: constraints.maxWidth,
                                     child: Column(
@@ -278,7 +299,7 @@ class HomeView extends StatelessWidget {
                                         Expanded(
                                           child: YummifyImage(
                                             image: model.categories[pos].image!,
-                                            borderRadius: 20.0,
+                                            borderRadius: 12.0,
                                             width: constraints.maxWidth,
                                             phImage: 'assets/ph_category.png',
                                           ),

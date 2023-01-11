@@ -15,8 +15,8 @@ class Constants {
   static const savedLocale = 'savedLocale';
 
   /// Device Types
-  static const isTablet = "isTablet";
-  static const isPhone = "isPhone";
+  static const tablet = "tablet";
+  static const phone = "phone";
 
   /// Border Radius Constants
   // ignore: constant_identifier_names
