@@ -15,7 +15,7 @@ Yummify is a fully-functional restaurant menu app to demonstrate how we can make
 ### :camera: Tablet screenshots:
 | 1 | 2| 3|
 |------|-------|-------|
-|<img src="screenshots/tablet_1.jpg" width="200">|<img src="screenshots/tablet_2.jpg" width="200">|<img src="screenshots/tablet_4.jpg" width="200">|
+|<img src="screenshots/tablet_1.jpg" width="200">|<img src="screenshots/tablet_2.jpg" width="200">|<img src="screenshots/tablet_3.jpg" width="200">|
 
 | 4 | 5| 6|
 |------|-------|-------|
