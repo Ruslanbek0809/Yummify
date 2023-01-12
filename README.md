@@ -4,22 +4,22 @@ Yummify is a fully-functional restaurant menu app to demonstrate how we can make
 
 ## :camera: Screenshots
 ### :camera: Phone screenshots:
-| 1 | 2|
-|------|-------|
-|<img src="screenshots/phone_1.jpg" width="300">|<img src="screenshots/phone_1.jpg" width="300">|
+| 1 | 2| 3|
+|------|-------|-------|
+|<img src="screenshots/phone_1.jpg" width="200">|<img src="screenshots/phone_2.jpg" width="200">|<img src="screenshots/phone_3.jpg" width="200">|
 
-| 3 | 4|
-|------|-------|
-|<img src="screenshots/phone_3.jpg" width="300">|<img src="screenshots/phone_4.jpg" width="300">|
+| 4 | 5| 6|
+|------|-------|-------|
+|<img src="screenshots/phone_4.jpg" width="200">|<img src="screenshots/phone_5.jpg" width="200">|<img src="screenshots/phone_6.jpg" width="200">|
 
 ### :camera: Tablet screenshots:
-| 1 | 2|
-|------|-------|
-|<img src="screenshots/tablet_1.jpg" width="300">|<img src="screenshots/tablet_2.jpg" width="300">|
+| 1 | 2| 3|
+|------|-------|-------|
+|<img src="screenshots/tablet_1.jpg" width="200">|<img src="screenshots/tablet_2.jpg" width="200">|<img src="screenshots/tablet_4.jpg" width="200">|
 
-| 3 | 4|
-|------|-------|
-|<img src="screenshots/tablet_3.jpg" width="300">|<img src="screenshots/tablet_4.jpg" width="300">|
+| 4 | 5| 6|
+|------|-------|-------|
+|<img src="screenshots/tablet_4.jpg" width="200">|<img src="screenshots/tablet_5.jpg" width="200">|<img src="screenshots/tablet_6.jpg" width="200">|
 
 
 ## :fire: App Features:
