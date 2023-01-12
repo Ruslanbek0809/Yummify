@@ -72,156 +72,187 @@ class MealHook extends HookViewModelWidget<MealViewModel> {
             },
           );
         },
-        child: Container(
-          decoration: BoxDecoration(
-            color: kcSecondaryDarkColor,
-            borderRadius: kbr20,
-          ),
-          child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              return Column(
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return Container(
+              width: constraints.maxWidth,
+              decoration: BoxDecoration(
+                color: kcSecondaryDarkColor,
+                borderRadius: kbr20,
+              ),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //------------------ IMAGE with DISCOUNT(if needed) ---------------------//
                   YummifyImage(
                     image: meal.image!,
                     height: constraints.maxWidth,
-                    width: constraints.maxWidth,
                     borderRadius: 20.0,
                     phImage: 'assets/ph_meal.png',
                   ),
-
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: 7.h,
-                      left: 6.w,
-                      right: 6.w,
-                    ),
-                    child: Text(
-                      meal.name!,
-                      maxLines: 2,
-                      style: ktsMealText,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  //------------------ MEAL PRICE ---------------------//
-                  viewModel.mealQuantity > 0
-                      ? Padding(
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
                           padding: EdgeInsets.only(
+                            top: 7.h,
                             left: 6.w,
                             right: 6.w,
-                            top: 5.h,
                           ),
                           child: Text(
-                            '${formatNum(meal.price!)} TMT',
-                            style: ktsMealPriceText,
+                            meal.name!,
+                            maxLines: 2,
+                            style: getDeviceType() == Constants.phone
+                                ? ktsMealPhoneText
+                                : ktsMealText,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        //------------------ MEAL PRICE ---------------------//
+                        viewModel.mealQuantity > 0
+                            ? Padding(
+                                padding: EdgeInsets.only(
+                                  left: 6.w,
+                                  right: 6.w,
+                                  top: 5.h,
+                                ),
+                                child: Text(
+                                  '${formatNum(meal.price!)} TMT',
+                                  style: getDeviceType() == Constants.phone
+                                      ? ktsMealPricePhoneText
+                                      : ktsMealPriceText,
+                                ),
+                              )
+                            : const SizedBox(),
+                        const Spacer(),
+                        //------------------ BUTTONS ---------------------//
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 6.w, vertical: 6.h),
+                          child: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 300),
+                            child:
+
+                                //------------------ If Meal ADDED ---------------------//
+                                viewModel.mealQuantity > 0
+                                    ? Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Material(
+                                            color: kcFontColor,
+                                            borderRadius: kbr15,
+                                            elevation: 3,
+                                            shadowColor: kcSecondaryDarkColor
+                                                .withOpacity(0.3),
+                                            child: InkWell(
+                                              borderRadius: kbr15,
+                                              onTap: () async {
+                                                /// SUBTRACTS quantity of a meal or REMOVES a meal from CART
+                                                await viewModel
+                                                    .subtractOrRemoveMealInCart();
+                                                await tweenController.forward();
+                                              },
+                                              child: Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 10.w,
+                                                  vertical: 10.h,
+                                                ),
+                                                child: Icon(
+                                                  Icons.remove,
+                                                  size: getDeviceType() ==
+                                                          Constants.phone
+                                                      ? 12.w
+                                                      : 11.w,
+                                                  color: kcSecondaryDarkColor,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            viewModel.mealQuantity.toString(),
+                                            style: getDeviceType() ==
+                                                    Constants.phone
+                                                ? ktsQuantityPhoneText
+                                                : ktsQuantityText,
+                                          ),
+                                          Material(
+                                            color: kcFontColor,
+                                            borderRadius: kbr15,
+                                            elevation: 3,
+                                            shadowColor: kcSecondaryDarkColor
+                                                .withOpacity(0.3),
+                                            child: InkWell(
+                                              borderRadius: kbr15,
+                                              onTap: () async {
+                                                /// INCREASES meal's quantity in CART
+                                                await viewModel
+                                                    .addOrIncreaseMealInCart();
+                                                await tweenController.forward();
+                                              },
+                                              child: Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 10.w,
+                                                  vertical: 10.h,
+                                                ),
+                                                child: Icon(
+                                                  Icons.add,
+                                                  size: getDeviceType() ==
+                                                          Constants.phone
+                                                      ? 12.w
+                                                      : 11.w,
+                                                  color: kcSecondaryDarkColor,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    //------------------ If Meal NOT ADDED ---------------------//
+                                    : Material(
+                                        color: kcFontColor,
+                                        borderRadius: kbr15,
+                                        elevation: 3,
+                                        shadowColor: kcSecondaryDarkColor
+                                            .withOpacity(0.3),
+                                        child: InkWell(
+                                          borderRadius: kbr15,
+                                          onTap: () async {
+                                            /// ADDS a meal to CART
+                                            await viewModel
+                                                .addOrIncreaseMealInCart();
+                                            await tweenController.forward();
+                                          },
+                                          child: Ink(
+                                            width: constraints.maxWidth,
+                                            decoration: BoxDecoration(
+                                              color: kcFontColor,
+                                              borderRadius: kbr15,
+                                            ),
+                                            padding: EdgeInsets.symmetric(
+                                              vertical: 10.h,
+                                            ),
+                                            child: Text(
+                                              '${formatNum(meal.price!)} TMT',
+                                              textAlign: TextAlign.center,
+                                              style: getDeviceType() ==
+                                                      Constants.phone
+                                                  ? ktsMealButtonPhoneText
+                                                  : ktsMealButtonText,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                           ),
                         )
-                      : const SizedBox(),
-                  const Spacer(),
-                  //------------------ BUTTONS ---------------------//
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 6.w, vertical: 6.h),
-                    child: AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 300),
-                      child: viewModel.mealQuantity > 0
-                          ? Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Material(
-                                  color: kcFontColor,
-                                  borderRadius: kbr15,
-                                  elevation: 3,
-                                  shadowColor:
-                                      kcSecondaryDarkColor.withOpacity(0.3),
-                                  child: InkWell(
-                                    borderRadius: kbr15,
-                                    onTap: () async {
-                                      /// SUBTRACTS quantity of a meal or REMOVES a meal from CART
-                                      await viewModel
-                                          .subtractOrRemoveMealInCart();
-                                      await tweenController.forward();
-                                    },
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 10.w,
-                                        vertical: 10.h,
-                                      ),
-                                      child: Icon(
-                                        Icons.remove,
-                                        size: 11.w,
-                                        color: kcSecondaryDarkColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  viewModel.mealQuantity.toString(),
-                                  style: ktsQuantityText,
-                                ),
-                                Material(
-                                  color: kcFontColor,
-                                  borderRadius: kbr15,
-                                  elevation: 3,
-                                  shadowColor:
-                                      kcSecondaryDarkColor.withOpacity(0.3),
-                                  child: InkWell(
-                                    borderRadius: kbr15,
-                                    onTap: () async {
-                                      /// INCREASES meal's quantity in CART
-                                      await viewModel.addOrIncreaseMealInCart();
-                                      await tweenController.forward();
-                                    },
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 10.w,
-                                        vertical: 10.h,
-                                      ),
-                                      child: Icon(
-                                        Icons.add,
-                                        size: 11.w,
-                                        color: kcSecondaryDarkColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
-                          : Material(
-                              color: kcFontColor,
-                              borderRadius: kbr15,
-                              elevation: 3,
-                              shadowColor:
-                                  kcSecondaryDarkColor.withOpacity(0.3),
-                              child: InkWell(
-                                borderRadius: kbr15,
-                                onTap: () async {
-                                  /// ADDS a meal to CART
-                                  await viewModel.addOrIncreaseMealInCart();
-                                  await tweenController.forward();
-                                },
-                                child: Ink(
-                                  width: constraints.maxWidth,
-                                  decoration: BoxDecoration(
-                                    color: kcFontColor,
-                                    borderRadius: kbr15,
-                                  ),
-                                  padding: EdgeInsets.symmetric(vertical: 10.h),
-                                  child: Text(
-                                    '${formatNum(meal.price!)} TMT',
-                                    textAlign: TextAlign.center,
-                                    style: ktsMealButtonText,
-                                  ),
-                                ),
-                              ),
-                            ),
+                      ],
                     ),
-                  )
+                  ),
                 ],
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ),
     );

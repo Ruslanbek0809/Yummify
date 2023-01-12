@@ -19,8 +19,8 @@ class ApiService {
   Future<List<TableModel>> getTables() async {
     List<TableModel> tables = [];
     try {
-      Response response = await apiRootService.dio.get('stols/');
-      log.v('RESPONSE: api/stols/ => ${response.data}');
+      Response response = await apiRootService.dio.get('tables/');
+      log.v('RESPONSE: api/tables/ => ${response.data}');
 
       if (response.data != null && response.statusCode == 200) {
         for (final singleTable in response.data) {
@@ -30,7 +30,7 @@ class ApiService {
 
       return tables;
     } on DioError catch (error) {
-      log.v('ERROR on api/stols/ :${error.response}');
+      log.v('ERROR on api/tables/ :${error.response}');
       throw DioErrorType.response;
     }
   }

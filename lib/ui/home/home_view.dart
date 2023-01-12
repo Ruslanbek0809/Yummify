@@ -63,7 +63,9 @@ class HomeView extends StatelessWidget {
                                 child: SvgPicture.asset(
                                   'assets/globe.svg',
                                   color: kcFontColor,
-                                  width: 10.sp,
+                                  width: getDeviceType() == Constants.phone
+                                      ? 14.sp
+                                      : 10.sp,
                                 ),
                               ),
                               Text(
@@ -92,16 +94,26 @@ class HomeView extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         Padding(
-                                          padding: EdgeInsets.only(right: 3.w),
+                                          padding: EdgeInsets.only(
+                                              right: getDeviceType() ==
+                                                      Constants.phone
+                                                  ? 8.w
+                                                  : 3.w),
                                           child: SvgPicture.asset(
                                             'assets/globe.svg',
                                             color: kcFontColor,
-                                            width: 10.sp,
+                                            width: getDeviceType() ==
+                                                    Constants.phone
+                                                ? 14.sp
+                                                : 10.sp,
                                           ),
                                         ),
                                         Text(
                                           lang,
-                                          style: ktsMealText,
+                                          style:
+                                              getDeviceType() == Constants.phone
+                                                  ? ktsMealPhoneText
+                                                  : ktsMealText,
                                         ).tr(),
                                       ],
                                     ),
@@ -275,11 +287,11 @@ class HomeView extends StatelessWidget {
                                   onTap: () => model.navToCategoryMealsView(
                                       model.categories[pos]),
                                   child: Container(
+                                    width: constraints.maxWidth,
                                     decoration: BoxDecoration(
                                       color: kcSecondaryDarkColor,
                                       borderRadius: kbr12,
                                     ),
-                                    width: constraints.maxWidth,
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -292,7 +304,10 @@ class HomeView extends StatelessWidget {
                                           child: Text(
                                             model.categories[pos].name ?? '',
                                             maxLines: 1,
-                                            style: ktsCatText,
+                                            style: getDeviceType() ==
+                                                    Constants.phone
+                                                ? ktsCatPhoneText
+                                                : ktsCatText,
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),

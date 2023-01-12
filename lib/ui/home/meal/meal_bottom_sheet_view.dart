@@ -63,7 +63,9 @@ class MealBottomSheetView extends StatelessWidget {
                         Expanded(
                           child: Text(
                             meal.name!,
-                            style: ktsMealPriceText,
+                            style: getDeviceType() == Constants.phone
+                                ? ktsMealPhoneText
+                                : ktsMealPriceText,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -72,7 +74,9 @@ class MealBottomSheetView extends StatelessWidget {
                           padding: EdgeInsets.only(left: 5.w),
                           child: Text(
                             '${formatNum(model.totalMealSumInBottomSheet)} TMT',
-                            style: ktsMealPriceText,
+                            style: getDeviceType() == Constants.phone
+                                ? ktsMealPhoneText
+                                : ktsMealPriceText,
                           ),
                         ),
                       ],
@@ -113,7 +117,10 @@ class MealBottomSheetView extends StatelessWidget {
                                             vertical: 10.h),
                                         child: Icon(
                                           Icons.remove,
-                                          size: 18.w,
+                                          size:
+                                              getDeviceType() == Constants.phone
+                                                  ? 20.w
+                                                  : 18.w,
                                           color: kcFontColor,
                                         ),
                                       ),
@@ -122,7 +129,9 @@ class MealBottomSheetView extends StatelessWidget {
                                 ),
                                 Text(
                                   model.quantityInBottomSheet.toString(),
-                                  style: ktsQuantityText,
+                                  style: getDeviceType() == Constants.phone
+                                      ? ktsQuantityPhoneText
+                                      : ktsQuantityText,
                                   textAlign: TextAlign.center,
                                 ),
                                 Expanded(
@@ -138,7 +147,10 @@ class MealBottomSheetView extends StatelessWidget {
                                             vertical: 10.h),
                                         child: Icon(
                                           Icons.add,
-                                          size: 18.w,
+                                          size:
+                                              getDeviceType() == Constants.phone
+                                                  ? 20.w
+                                                  : 18.w,
                                           color: kcFontColor,
                                         ),
                                       ),
@@ -164,7 +176,9 @@ class MealBottomSheetView extends StatelessWidget {
                             },
                             child: Text(
                               LocaleKeys.add,
-                              style: ktsMealButtonText,
+                              style: getDeviceType() == Constants.phone
+                                  ? ktsMealButtonPhoneText
+                                  : ktsMealButtonText,
                             ).tr(),
                           ),
                         ),

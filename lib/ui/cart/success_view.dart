@@ -35,7 +35,9 @@ class SuccessView extends StatelessWidget {
                   child: Text(
                     LocaleKeys.orderSuccess,
                     textAlign: TextAlign.center,
-                    style: ktsCartMealPriceText,
+                    style: getDeviceType() == Constants.phone
+                        ? ktsCartMealPricePhoneText
+                        : ktsCartMealPriceText,
                   ).tr(),
                 ),
                 SizedBox(height: 0.1.sh),
@@ -47,7 +49,9 @@ class SuccessView extends StatelessWidget {
                   onPressed: model.navToHomeByRemovingAll,
                   child: Text(
                     LocaleKeys.homeScreen,
-                    style: ktsMealButtonText,
+                    style: getDeviceType() == Constants.phone
+                        ? ktsMealButtonPhoneText
+                        : ktsMealButtonText,
                   ).tr(),
                 ),
               ],

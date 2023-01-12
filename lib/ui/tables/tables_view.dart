@@ -35,7 +35,8 @@ class TablesView extends StatelessWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 20.h, //spaceTopBottom
                     crossAxisSpacing: 20.w, //spaceLeftRight
-                    childAspectRatio: 1 / 0.8,
+                    childAspectRatio:
+                        getDeviceType() == Constants.phone ? 1 / 0.85 : 1 / 0.8,
                   ),
                   itemCount: model.tables.length,
                   itemBuilder: (context, pos) =>

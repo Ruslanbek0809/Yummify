@@ -81,7 +81,9 @@ class CategoryView extends StatelessWidget {
                           crossAxisCount: 2,
                           mainAxisSpacing: 12.h, //spaceTopBottom
                           crossAxisSpacing: 12.w, //spaceLeftRight
-                          childAspectRatio: 1 / 1.5,
+                          childAspectRatio: getDeviceType() == Constants.phone
+                              ? 1 / 1.675
+                              : 1 / 1.5,
                         ),
                         itemCount: model.categoryMeals.length,
                         itemBuilder: (context, pos) => MealView(
