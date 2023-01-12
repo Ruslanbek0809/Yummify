@@ -28,7 +28,7 @@ class CartView extends StatelessWidget {
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back,
-                  size: 16.sp,
+                  size: getDeviceType() == Constants.phone ? 18.sp : 16.sp,
                   color: kcFontColor,
                 ),
                 onPressed: model.navBack,
@@ -37,7 +37,9 @@ class CartView extends StatelessWidget {
             centerTitle: true,
             title: Text(
               LocaleKeys.orders,
-              style: ktsCartTitleText,
+              style: getDeviceType() == Constants.phone
+                  ? ktsCartTitlePhoneText
+                  : ktsCartTitleText,
             ).tr(),
             actions: [
               Padding(
@@ -46,7 +48,7 @@ class CartView extends StatelessWidget {
                   onPressed: () async => await model.showClearCartDialog(model),
                   icon: Icon(
                     Icons.delete_outline_rounded,
-                    size: 16.sp,
+                    size: getDeviceType() == Constants.phone ? 18.sp : 16.sp,
                     color: kcFontColor,
                   ),
                 ),
@@ -78,7 +80,9 @@ class CartView extends StatelessWidget {
                         if (model.isBusy)
                           FittedBox(
                             child: SpinKitSpinningLines(
-                              size: 12.sp,
+                              size: getDeviceType() == Constants.phone
+                                  ? 14.sp
+                                  : 12.sp,
                               itemCount: 4,
                               color: kcSecondaryDarkColor,
                             ),
@@ -88,7 +92,9 @@ class CartView extends StatelessWidget {
                             padding: EdgeInsets.only(left: 8.w),
                             child: Text(
                               LocaleKeys.orderNow,
-                              style: ktsMealButtonText,
+                              style: getDeviceType() == Constants.phone
+                                  ? ktsMealButtonPhoneText
+                                  : ktsMealButtonText,
                             ).tr(),
                           ),
                         if (!model.isBusy)
@@ -102,12 +108,16 @@ class CartView extends StatelessWidget {
                                   padding: EdgeInsets.only(right: 5.w),
                                   child: Text(
                                     LocaleKeys.total,
-                                    style: ktsMealButtonText,
+                                    style: getDeviceType() == Constants.phone
+                                        ? ktsMealButtonPhoneText
+                                        : ktsMealButtonText,
                                   ).tr(),
                                 ),
                                 Text(
                                   '${formatNum(model.getTotalCartMealsSum)} TMT',
-                                  style: ktsMealButtonText,
+                                  style: getDeviceType() == Constants.phone
+                                      ? ktsMealButtonPhoneText
+                                      : ktsMealButtonText,
                                 ),
                               ],
                             ),

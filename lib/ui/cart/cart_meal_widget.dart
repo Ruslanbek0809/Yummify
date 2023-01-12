@@ -20,8 +20,8 @@ class CartMealWidget extends ViewModelWidget<CartViewModel> {
       children: [
         YummifyImage(
           image: cartMeal.image!,
-          height: 0.25.sw,
-          width: 0.25.sw,
+          height: getDeviceType() == Constants.phone ? 0.26.sw : 0.25.sw,
+          width: getDeviceType() == Constants.phone ? 0.26.sw : 0.25.sw,
           borderRadius: 10.0,
           phImage: 'assets/ph_meal.png',
         ),
@@ -45,13 +45,17 @@ class CartMealWidget extends ViewModelWidget<CartViewModel> {
                           cartMeal.name!,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: ktsCartMealText,
+                          style: getDeviceType() == Constants.phone
+                              ? ktsCartMealPhoneText
+                              : ktsCartMealText,
                         )),
                         Padding(
                           padding: EdgeInsets.only(left: 5.w),
                           child: Text(
                             '${formatNum(viewModel.getTotalMealSum(cartMeal))} TMT',
-                            style: ktsCartMealPriceText,
+                            style: getDeviceType() == Constants.phone
+                                ? ktsCartMealPricePhoneText
+                                : ktsCartMealPriceText,
                           ),
                         ),
                       ],
@@ -60,7 +64,9 @@ class CartMealWidget extends ViewModelWidget<CartViewModel> {
                       padding: EdgeInsets.only(top: 7.h),
                       child: Text(
                         '${formatNum(cartMeal.price!)} TMT',
-                        style: ktsCartMealText,
+                        style: getDeviceType() == Constants.phone
+                            ? ktsCartMealPhoneText
+                            : ktsCartMealText,
                       ),
                     ),
                   ],
@@ -87,7 +93,9 @@ class CartMealWidget extends ViewModelWidget<CartViewModel> {
                           ),
                           child: Icon(
                             Icons.remove,
-                            size: 12.w,
+                            size: getDeviceType() == Constants.phone
+                                ? 14.w
+                                : 12.w,
                             color: kcSecondaryDarkColor,
                           ),
                         ),
@@ -97,7 +105,9 @@ class CartMealWidget extends ViewModelWidget<CartViewModel> {
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Text(
                         cartMeal.quantity.toString(),
-                        style: ktsQuantityText,
+                        style: getDeviceType() == Constants.phone
+                            ? ktsQuantityPhoneText
+                            : ktsQuantityText,
                       ),
                     ),
                     Material(
@@ -115,7 +125,9 @@ class CartMealWidget extends ViewModelWidget<CartViewModel> {
                           ),
                           child: Icon(
                             Icons.add,
-                            size: 12.w,
+                            size: getDeviceType() == Constants.phone
+                                ? 14.w
+                                : 12.w,
                             color: kcSecondaryDarkColor,
                           ),
                         ),

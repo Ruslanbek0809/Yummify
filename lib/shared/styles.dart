@@ -19,13 +19,28 @@ TextStyle ktsCatText = TextStyle(
   color: kcFontColor,
 );
 
+TextStyle ktsCatPhoneText = TextStyle(
+  fontSize: 14.sp,
+  color: kcFontColor,
+);
+
 TextStyle ktsMealText = TextStyle(
   fontSize: 8.sp,
   color: kcFontColor,
 );
 
+TextStyle ktsMealPhoneText = TextStyle(
+  fontSize: 12.sp,
+  color: kcFontColor,
+);
+
 TextStyle ktsMealPriceText = TextStyle(
   fontSize: 10.sp,
+  color: kcFontColor,
+);
+
+TextStyle ktsMealPricePhoneText = TextStyle(
+  fontSize: 14.sp,
   color: kcFontColor,
 );
 
@@ -35,8 +50,20 @@ TextStyle ktsMealButtonText = TextStyle(
   color: kcSecondaryDarkColor,
 );
 
+TextStyle ktsMealButtonPhoneText = TextStyle(
+  fontSize: 12.sp,
+  fontWeight: FontWeight.w600,
+  color: kcSecondaryDarkColor,
+);
+
 TextStyle ktsQuantityText = TextStyle(
   fontSize: 12.sp,
+  fontWeight: FontWeight.w600,
+  color: kcFontColor,
+);
+
+TextStyle ktsQuantityPhoneText = TextStyle(
+  fontSize: 14.sp,
   fontWeight: FontWeight.w600,
   color: kcFontColor,
 );
@@ -52,13 +79,29 @@ TextStyle ktsCartTitleText = TextStyle(
   color: kcFontColor,
 );
 
+TextStyle ktsCartTitlePhoneText = TextStyle(
+  fontSize: 14.sp,
+  color: kcFontColor,
+);
+
 TextStyle ktsCartMealText = TextStyle(
   fontSize: 10.sp,
   color: kcFontColor,
 );
 
+TextStyle ktsCartMealPhoneText = TextStyle(
+  fontSize: 12.sp,
+  color: kcFontColor,
+);
+
 TextStyle ktsCartMealPriceText = TextStyle(
   fontSize: 12.sp,
+  fontWeight: FontWeight.w600,
+  color: kcFontColor,
+);
+
+TextStyle ktsCartMealPricePhoneText = TextStyle(
+  fontSize: 14.sp,
   fontWeight: FontWeight.w600,
   color: kcFontColor,
 );
