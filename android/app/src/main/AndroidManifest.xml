@@ -2,7 +2,7 @@
     package="tm.com.yummify">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="yummify"
+        android:label="Yummify"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
