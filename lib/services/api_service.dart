@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 import '../models/models.dart';
@@ -82,49 +84,51 @@ class ApiService {
     }
   }
 
-  // //------------------ CREATE ORDER API ---------------------//
+  //------------------ CREATE ORDER API ---------------------//
 
-  // Future<void> createOrder(
-  //   HiveTable hiveTable,
-  //   List<HiveMeal> cartMeals,
-  //   Function()? onSuccess,
-  //   Function()? onFail,
-  // ) async {
-  //   List<CreateOrderItem>? _orderMeals = [];
+  Future<void> createOrder(
+    HiveTable hiveTable,
+    List<HiveMeal> cartMeals,
+    Function()? onSuccess,
+    Function()? onFail,
+  ) async {
+    List<CreateOrderItem>? orderMeals = [];
 
-  //   /// Step 1. For each cartMeal in cartMeals, creating and assigning to orderItemList
-  //   for (HiveMeal _cartMeal in cartMeals)
-  //     _orderMeals.add(CreateOrderItem(
-  //       mealId: _cartMeal.id,
-  //       quantity: _cartMeal.quantity,
-  //     ));
+    /// Step 1. For each cartMeal in cartMeals, creating and assigning to orderItemList
+    for (HiveMeal cartMeal in cartMeals) {
+      orderMeals.add(CreateOrderItem(
+        mealId: cartMeal.id,
+        quantity: cartMeal.quantity,
+      ));
+    }
 
-  //   /// Step 2. CREATE new order
-  //   CreateOrder _createOrder = CreateOrder(
-  //     tableId: hiveTable.id,
-  //     orderMeals: _orderMeals,
-  //   );
+    /// Step 2. CREATE new order
+    CreateOrder createOrder = CreateOrder(
+      tableId: hiveTable.id,
+      orderMeals: orderMeals,
+    );
 
-  //   log.i('_createOrder.toJson(): ${_createOrder.toJson()}');
-  //   log.i('_createOrder with jsonEncode: ${jsonEncode(_createOrder)}');
+    log.i('_createOrder.toJson(): ${createOrder.toJson()}');
+    log.i('_createOrder with jsonEncode: ${jsonEncode(createOrder)}');
 
-  //   try {
-  //     Response response = await _apiRoot.dio.post(
-  //       'orders/',
-  //       data: jsonEncode(
-  //           _createOrder), // Step 3. Instead of using formData I used jsonSerializable's toJson with built-in jsonEncode func
-  //     );
-  //     log.v('RESPONSE: orders/ => ${response.data}');
+    try {
+      Response response = await apiRootService.dio.post(
+        'orders/',
+        data: jsonEncode(
+            createOrder), // Step 3. Instead of using formData I used jsonSerializable's toJson with built-in jsonEncode func
+      );
+      log.v('RESPONSE: orders/ => ${response.data}');
 
-  //     if (response.data != null &&
-  //         (response.statusCode == 200 || response.statusCode == 201))
-  //       onSuccess!();
-  //     else
-  //       onFail!();
-  //   } on DioError catch (error) {
-  //     log.v('ERROR orders/ with RESPONSE: ${error.response}');
-  //     onFail!();
-  //     throw DioErrorType.response;
-  //   }
-  // }
+      if (response.data != null &&
+          (response.statusCode == 200 || response.statusCode == 201)) {
+        onSuccess!();
+      } else {
+        onFail!();
+      }
+    } on DioError catch (error) {
+      log.v('ERROR orders/ with RESPONSE: ${error.response}');
+      onFail!();
+      throw DioErrorType.response;
+    }
+  }
 }

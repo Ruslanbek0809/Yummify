@@ -34,7 +34,7 @@ Future<void> showErrorFlashBar({
 }) async {
   await showFlash(
     context: context,
-    duration: Duration(milliseconds: 2000),
+    duration: const Duration(milliseconds: 2000),
     builder: (context, controller) {
       return Flash(
         backgroundColor: kcSecondaryDarkColor,
@@ -64,6 +64,12 @@ Future<void> showErrorFlashBar({
       );
     },
   );
+}
+
+String getDeviceType() {
+  final data = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+  // printLog('getDeviceType(): ${data.size.shortestSide}');
+  return data.size.shortestSide < 600 ? Constants.phone : Constants.tablet;
 }
 
 /// Radiuses

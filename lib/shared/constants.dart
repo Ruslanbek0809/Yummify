@@ -1,7 +1,7 @@
 class Constants {
   static const appName = 'Yummify';
 
-  static const baseUrl = 'http://104.193.255.3/api/';
+  static const baseUrl = 'http://185.223.93.215/api/';
 
   // Hive
   static const cartBox = 'cartBox';
@@ -15,8 +15,8 @@ class Constants {
   static const savedLocale = 'savedLocale';
 
   /// Device Types
-  static const isTablet = "isTablet";
-  static const isPhone = "isPhone";
+  static const tablet = "tablet";
+  static const phone = "phone";
 
   /// Border Radius Constants
   // ignore: constant_identifier_names

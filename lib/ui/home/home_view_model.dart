@@ -35,7 +35,7 @@ class HomeViewModel extends FutureViewModel {
   }
 
   /// SETS initial lang
-  setInitalLang(BuildContext context) =>
+  setInitialLang(BuildContext context) =>
       _selectedLang = context.locale == context.supportedLocales[0]
           ? LocaleKeys.lang_en
           : LocaleKeys.lang_ru;

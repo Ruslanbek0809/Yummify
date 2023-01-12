@@ -12,6 +12,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 import '../models/category_model.dart';
 import '../ui/cart/cart_view.dart';
+import '../ui/cart/success_view.dart';
 import '../ui/home/category/category_view.dart';
 import '../ui/home/home_view.dart';
 import '../ui/startup_view.dart';
@@ -23,12 +24,14 @@ class Routes {
   static const String homeView = '/home-view';
   static const String categoryView = '/category-view';
   static const String cartView = '/cart-view';
+  static const String successView = '/success-view';
   static const all = <String>{
     startUpView,
     tablesView,
     homeView,
     categoryView,
     cartView,
+    successView,
   };
 }
 
@@ -41,6 +44,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.categoryView, page: CategoryView),
     RouteDef(Routes.cartView, page: CartView),
+    RouteDef(Routes.successView, page: SuccessView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -76,6 +80,12 @@ class StackedRouter extends RouterBase {
     CartView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const CartView(),
+        settings: data,
+      );
+    },
+    SuccessView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const SuccessView(),
         settings: data,
       );
     },
@@ -174,6 +184,22 @@ extension NavigatorStateExtension on NavigationService {
   }) async {
     return navigateTo(
       Routes.cartView,
+      id: routerId,
+      preventDuplicates: preventDuplicates,
+      parameters: parameters,
+      transition: transition,
+    );
+  }
+
+  Future<dynamic> navigateToSuccessView({
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return navigateTo(
+      Routes.successView,
       id: routerId,
       preventDuplicates: preventDuplicates,
       parameters: parameters,

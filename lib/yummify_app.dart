@@ -19,7 +19,13 @@ class YummifyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return ScreenUtilInit(
+      // designSize: const Size(428, 926),
+      splitScreenMode: true,
+      minTextAdapt:
+          true, // Whether to adapt the text according to the minimum of width and height
+      useInheritedMediaQuery: true,
       builder: (context, widget) => MaterialApp(
+        useInheritedMediaQuery: true,
         title: Constants.appName,
         navigatorObservers: [StackedService.routeObserver],
         navigatorKey: StackedService.navigatorKey, // For stacked_services

@@ -64,15 +64,12 @@ class CartView extends StatelessWidget {
                     borderRadius: kbr15,
                     padding:
                         EdgeInsets.symmetric(vertical: 14.h, horizontal: 10.w),
-                    onPressed:
-                        // model.isBusy
-                        // ?
-                        () {}
-                    // : () async => await model.createOrder(
-                    //       onFailForView: () async =>
-                    //           await showErrorFlashBar(context: context),
-                    //     )
-                    ,
+                    onPressed: model.isBusy
+                        ? () {}
+                        : () async => await model.createOrder(
+                              onFailForView: () async =>
+                                  await showErrorFlashBar(context: context),
+                            ),
                     child: Row(
                       mainAxisAlignment: model.isBusy
                           ? MainAxisAlignment.center

@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
-      onModelReady: (model) => model.setInitalLang(context),
+      onModelReady: (model) => model.setInitialLang(context),
       builder: (context, model, child) {
         return Scaffold(
           floatingActionButton: const BadgeView(),
@@ -149,73 +149,101 @@ class HomeView extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(16.w, 0.h, 16.w, 15.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SvgPicture.asset(
-                      'assets/logo.svg',
-                      color: kcFontColor,
-                      width: 0.375.sw,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        GestureDetector(
-                          onTap: () async => await model.navToTablesView(),
-                          child: Row(
+                        SvgPicture.asset(
+                          'assets/logo.svg',
+                          color: kcFontColor,
+                          height: getDeviceType() == Constants.phone
+                              ? 0.075.sh
+                              : 0.1.sh,
+                        ),
+                        SvgPicture.asset(
+                          'assets/logo_name.svg',
+                          color: kcFontColor,
+                          height: getDeviceType() == Constants.phone
+                              ? 0.05.sh
+                              : 0.075.sh,
+                        ),
+                      ],
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          GestureDetector(
+                            onTap: () async => await model.navToTablesView(),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SvgPicture.asset(
+                                  'assets/table_logo.svg',
+                                  color: kcFontColor,
+                                  width: getDeviceType() == Constants.phone
+                                      ? 16.w
+                                      : 12.sp,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 3.w, top: 6.h),
+                                  child: Text(
+                                    model.selectedHiveTable.name!,
+                                    style: getDeviceType() == Constants.phone
+                                        ? ktsCatText
+                                        : ktsInfoText,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 5.h),
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SvgPicture.asset(
-                                'assets/table_logo.svg',
+                                'assets/instagram.svg',
                                 color: kcFontColor,
-                                width: 12.sp,
+                                width: getDeviceType() == Constants.phone
+                                    ? 16.w
+                                    : 12.sp,
                               ),
                               Padding(
-                                padding: EdgeInsets.only(left: 3.w, top: 6.h),
+                                padding: EdgeInsets.only(left: 5.w),
                                 child: Text(
-                                  model.selectedHiveTable.name!,
-                                  style: ktsInfoText,
+                                  'restaurant_ig_page',
+                                  style: getDeviceType() == Constants.phone
+                                      ? ktsCatText
+                                      : ktsInfoText,
                                 ),
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(height: 5.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/instagram.svg',
-                              color: kcFontColor,
-                              width: 10.sp,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 5.w),
-                              child: Text(
-                                'coffee_nostra',
-                                style: ktsInfoText,
+                          SizedBox(height: 5.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/imo.svg',
+                                width: getDeviceType() == Constants.phone
+                                    ? 16.w
+                                    : 12.sp,
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/imo.svg',
-                              width: 10.sp,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 5.w),
-                              child: Text(
-                                '+993 65 650141',
-                                style: ktsInfoText,
+                              Padding(
+                                padding: EdgeInsets.only(left: 5.w),
+                                child: Text(
+                                  'imo_page',
+                                  style: getDeviceType() == Constants.phone
+                                      ? ktsCatText
+                                      : ktsInfoText,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -244,13 +272,12 @@ class HomeView extends StatelessWidget {
                               itemBuilder: (context, pos) => LayoutBuilder(
                                   builder: (context, constraints) {
                                 return GestureDetector(
-                                  onTap: () => {},
-                                  // onTap: () => model.navToCategoryMealsView(
-                                  //     model.categories![pos]),
+                                  onTap: () => model.navToCategoryMealsView(
+                                      model.categories[pos]),
                                   child: Container(
                                     decoration: BoxDecoration(
                                       color: kcSecondaryDarkColor,
-                                      borderRadius: kbr20,
+                                      borderRadius: kbr12,
                                     ),
                                     width: constraints.maxWidth,
                                     child: Column(
@@ -272,7 +299,7 @@ class HomeView extends StatelessWidget {
                                         Expanded(
                                           child: YummifyImage(
                                             image: model.categories[pos].image!,
-                                            borderRadius: 20.0,
+                                            borderRadius: 12.0,
                                             width: constraints.maxWidth,
                                             phImage: 'assets/ph_category.png',
                                           ),

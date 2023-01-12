@@ -102,19 +102,19 @@ class CartViewModel extends ReactiveViewModel {
     notifyListeners();
   }
 
-  // /// CREATES new order
-  // Future<void> createOrder({Function()? onFailForView}) async =>
-  //     await runBusyFuture(
-  //       _api.createOrder(
-  //         selectedHiveTable,
-  //         cartMeals,
-  //         () async {
-  //           await _hiveDbService.clearCart();
-  //           await _navService.pushNamedAndRemoveUntil(Routes.successView);
-  //         },
-  //         () => onFailForView!(),
-  //       ),
-  //     );
+  /// CREATES a new order
+  Future<void> createOrder({Function()? onFailForView}) async =>
+      await runBusyFuture(
+        _api.createOrder(
+          selectedHiveTable,
+          cartMeals,
+          () async {
+            await _hiveDbService.clearCart();
+            await _navService.pushNamedAndRemoveUntil(Routes.successView);
+          },
+          () => onFailForView!(),
+        ),
+      );
 
 //------------------------ NAVIGATION ----------------------------//
   void navBack() => _navService.back(result: true);

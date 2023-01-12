@@ -105,7 +105,7 @@ class HiveDbService with ReactiveServiceMixin {
     /// GETS lastMeal from these meals
     /// firstWhereOrNull is a new method of package:collection
     HiveMeal? selectedMeal =
-        _cartMeals.value.firstWhereOrNull((meal) => meal.id == meal.id);
+        _cartMeals.value.firstWhereOrNull((cartMeal) => cartMeal.id == meal.id);
     int pos = -1;
     if (selectedMeal != null) pos = _cartMeals.value.indexOf(selectedMeal);
     log.v('pos of _selectedMeal: $pos');

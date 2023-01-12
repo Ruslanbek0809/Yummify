@@ -25,15 +25,19 @@ class MealHook extends HookViewModelWidget<MealViewModel> {
 
     /// To dispose a status listener attached to _tweenController
     useEffect(() {
-      void _listenerStatus(AnimationStatus status) {
+      tweenController.addStatusListener((AnimationStatus status) {
         // This listener was used to repeat animation once
         if (status == AnimationStatus.completed) {
           tweenController.reverse();
         }
-      }
-
-      tweenController.addStatusListener(_listenerStatus);
-      return () => tweenController.removeStatusListener(_listenerStatus);
+      });
+      return () =>
+          tweenController.removeStatusListener((AnimationStatus status) {
+            // This listener was used to repeat animation once
+            if (status == AnimationStatus.completed) {
+              tweenController.reverse();
+            }
+          });
     }, [tweenController]);
 
     return ScaleTransition(
@@ -51,7 +55,6 @@ class MealHook extends HookViewModelWidget<MealViewModel> {
           //------------------ CUSTOM PACKAGE ---------------------//
           await showFlexibleBottomSheet(
             isExpand: false,
-            // minHeight: 0,
             initHeight: 0.95,
             maxHeight: 0.95,
             duration: const Duration(milliseconds: 250),
