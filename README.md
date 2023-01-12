@@ -3,20 +3,46 @@
 Yummify is a fully-functional restaurant menu app to demonstrate how we can make a scalable, and maintainable app in an understandable manner using an MVVM inspired architecture in Flutter.
 
 ## :camera: Screenshots
+### :camera: Phone screenshots:
+| 1 | 2|
+|------|-------|
+|<img src="screenshots/phone_1.jpg" width="300">|<img src="screenshots/phone_1.jpg" width="300">|
+
+| 3 | 4|
+|------|-------|
+|<img src="screenshots/phone_3.jpg" width="300">|<img src="screenshots/phone_4.jpg" width="300">|
+
+### :camera: Tablet screenshots:
+| 1 | 2|
+|------|-------|
+|<img src="screenshots/tablet_1.jpg" width="300">|<img src="screenshots/tablet_2.jpg" width="300">|
+
+| 3 | 4|
+|------|-------|
+|<img src="screenshots/tablet_3.jpg" width="300">|<img src="screenshots/tablet_4.jpg" width="300">|
+
 
 ## :fire: App Features:
 * Flutter + REST API (Backend Server, Storage)
-  Test account: operator@gmail.com / secret
+  Url: http://185.223.93.215/login | Test account: operator@gmail.com / secret
 * Use Stacked pattern
 * Responsive (Mobil + Tablet)
 * User-friendly interface
 * Clean Architecture
 * Custom resuable widgets
-* Categories/products
-* Use of local storage (hive)
-* Make your order
+* Restaurant Categories
+* Category meals with bottom sheet based on content height
+* Use of local storage (Hive)
+* Make your order and view it from admin panel
 * More...
-* Upcoming more...
+
+I plan to add more in the future (PRs welcome!).
+
+## :pencil: Future Roadmap:
+
+* Polish the UI
+* Light/Dart Stacked Theme
+* Add more screens/features/functionalities
 
 ## :books: Installation
 
