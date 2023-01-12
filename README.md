@@ -65,7 +65,7 @@ This repository makes use of the following pub packages:
 | Package | Version | Usage |
 | ------ | ------ | ------ |
 | [dio](https://pub.dev/packages/dio/versions/4.0.6) | ^4.0.6 | API*
-| [connectivity_plus](https://pub.dev/packages/connectivity_plus/versions/3.0.2) | ^3.0.2 | Network
+| [connectivity_plus](https://pub.dev/packages/connectivity_plus/versions/3.0.2) | ^3.0.2 | Network*
 | [stacked](https://pub.dev/packages/stacked/versions/3.0.1) | ^3.0.1 | State & Architecture*
 | [stacked_services](https://pub.dev/packages/stacked_services/versions/0.9.9) | ^0.9.9 | State & Architecture Services* 
 | [stacked_hooks](https://pub.dev/packages/stacked_hooks/versions/0.2.2) | ^0.2.2 | State & Architecture Tool* 
@@ -89,7 +89,7 @@ This repository makes use of the following pub packages:
 | [flutter_spinkit](https://pub.dev/packages/flutter_spinkit/versions/5.1.0) | ^5.1.0 | Others*
 | [flash](https://pub.dev/packages/flash/versions/2.0.5) | ^2.0.5 | Others*
 | [shimmer](https://pub.dev/packages/shimmer/versions/2.0.0) | ^2.0.0 | Others
-| [bottom_sheet](httpshttps://pub.dev/packages/bottom_sheet/versions/3.1.2) | ^3.1.2 | Others*
+| [bottom_sheet](https://pub.dev/packages/bottom_sheet/versions/3.1.2) | ^3.1.2 | Others*
 | [badges](https://pub.dev/packages/badges/versions/2.0.3) | ^2.0.3 | Others*
 | [lottie](https://pub.dev/packages/lottie/versions/2.2.0) | ^2.2.0 | Others*
 | [dropdown_button2](https://pub.dev/packages/dropdown_button2/versions/1.9.2) | ^1.9.2 | Others*
