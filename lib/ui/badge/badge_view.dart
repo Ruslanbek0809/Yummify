@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import '../../shared/shared.dart';
@@ -14,10 +14,10 @@ class BadgeView extends StatelessWidget {
       builder: (context, model, child) {
         return Padding(
           padding: EdgeInsets.only(bottom: 5.h, right: 5.w),
-          child: Badge(
+          child: badge.Badge(
             showBadge: model.cartMeals.isNotEmpty,
             badgeColor: kcFontColor,
-            shape: BadgeShape.circle,
+            shape: badge.BadgeShape.circle,
             badgeContent: Padding(
               padding: const EdgeInsets.all(5.0),
               child: Text(
